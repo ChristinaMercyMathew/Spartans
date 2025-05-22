@@ -338,7 +338,7 @@ section::after {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(50, 50, 50, 0.3), transparent);
+  /* background: linear-gradient(to right, transparent, rgba(50, 50, 50, 0.3), transparent); */
 }
 
 section:last-of-type::after {
