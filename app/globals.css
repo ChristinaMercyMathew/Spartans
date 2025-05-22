@@ -42,8 +42,18 @@
   }
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  background-color: black; 
+  overflow-x: hidden; 
+}
+
+section {
+  margin: 0;
+  padding: 0;
+  background-color: black; /* ensure sections fill with black bg */
 }
 
 /* Hero Banner Styles */
