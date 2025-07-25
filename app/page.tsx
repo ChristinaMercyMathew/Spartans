@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import TeamMemberCard from "@/components/team-member-card"
 import SportBadge from "@/components/sport-badge"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -9,18 +9,32 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("spartans")
   const [filterMode, setFilterMode] = useState(true)
   const teamSectionRef = useRef<HTMLDivElement>(null)
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const offset = Math.max(0, rect.top * 0.4);
+      setParallaxOffset(offset);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const sportsCategories = [
     { id: "spartans", name: "Spartans" },
-    { id: "cricket", name: "Cricket" },
-    { id: "badminton", name: "Badminton" },
     { id: "football", name: "Football" },
-    { id: "table-tennis", name: "Table Tennis" },
-    { id: "snooker", name: "Snooker" },
     { id: "throwball", name: "Throwball" },
-    { id: "pickle-ball", name: "Pickle Ball" },
-    { id: "chess", name: "Chess" },
     { id: "carrom", name: "Carrom" },
+    { id: "badminton", name: "Badminton" },
+    { id: "snooker", name: "Snooker" },
+    { id: "cricket", name: "Cricket" },
+    { id: "table-tennis", name: "Table Tennis" },
+    { id: "pickle-ball", name: "Pickle Ball" },
+   
   ]
   const teamMembers = [
     { id: 1, name: "MPS", image: "/images/spartans/spartan-warrior-mps.png", sports: ["cricket"] },
@@ -66,7 +80,9 @@ export default function Home() {
     { id: 41, name: "Stephen", image: "/images/spartans/spartan-warrior-stephen-francis.png", sports: ["cricket", "football", "badminton"] },
     { id: 42, name: "Suman", image: "/images/spartans/spartan-warrior-suman-mathiyazhagan.png", sports: ["cricket", "football", "carrom", "table-tennis", "badminton", "pickle-ball"] },
     { id: 43, name: "Suresh", image: "/images/spartans/spartan-warrior-suresh-kumar-d.png", sports: ["cricket", "carrom", "table-tennis", "snooker", "badminton", "pickle-ball"] },
-    { id: 44, name: "Thangaraj", image: "/images/spartans/spartan-warrior-thangaraj-ravi.png", sports: ["cricket", "football", "carrom", "table-tennis", "chess"] },
+    { id: 44, name: "Thangaraj", image: "/images/spartans/spartan-warrior-thangaraj-ravi.png", sports: ["cricket", "football", "carrom", "table-tennis", "chess"] },  
+    { id: 45, name: "Sachin", image: "/images/spartans/spartan-warrior-sachin.png", sports: ["cricket", "table-tennis", "badminton"] },
+    { id: 46, name: "Zaheer", image: "/images/spartans/spartan-warrior-zaheer.png", sports: ["cricket", "football", "table-tennis"] },
   ];
   
   type TeamMember = {
@@ -107,24 +123,31 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-black text-white">
-     <section className="w-full relative bg-black hero-banner-container py-6 sm:py-14 md:py-20"> 
+     <section className="w-full relative bg-black hero-banner-container py-6 md:py-10"> 
   {/* Logo */}
   <div className="absolute z-20 top-4 sm:top-6 md:top-8 lg:top-14 xl:top-20 left-1/2 transform -translate-x-1/2">
     <img
-      src="/images/spartans-logo.svg"
+      src="/images/spartans-logo.png"
       alt="Spartans Logo"
-      className="w-40 sm:w-56 md:w-72 lg:w-[400px] xl:w-[460px] h-auto"
+      className="w-40 sm:w-56 md:w-72 lg:w-[400px] xl:w-[460px] h-auto animate-fade-in-up"
     />
   </div>
 
   {/* Hero Image */}
-  <div className="hero-image-wrapper pb-4 relative w-full mt-12 sm:mt-0">
+  <div
+    ref={heroRef}
+    className="hero-image-wrapper pb-4 relative w-full mt-12 sm:mt-0"
+    style={{
+      transform: `translateY(${parallaxOffset}px)`,
+      transition: "transform 0.4s linear",
+      willChange: "transform",
+    }}
+  >
     <img
-      src="/images/spartans-complete.svg"
+      src="/images/spartans-complete.jpg"
       alt="SPARTANS ARE BACK"
-      className="hero-image mx-auto"
+      className="hero-image mx-auto animate-fade-in-up"
     />
-
     {/* Fade at the bottom */}
     <div className="absolute bottom-0 left-0 w-full h-60 bg-gradient-to-b from-transparent to-black pointer-events-none" />
   </div>
@@ -135,18 +158,17 @@ export default function Home() {
 
 
       {/* Mission Statement */}
-      <section className="w-full pt-6 py-6 sm:py-14 md:py-20 bg-black">
-        <div className="container mx-auto px-4 text-center">
+      <section className="w-full pt-6 py-6 md:py-10 bg-black">
+        <div className="container mx-auto px-4 text-center animate-fade-in-up">
           <h2 className="blue-red-gradient text-2xl sm:text-3xl md:text-4xl lg:text-[55px] leading-tight font-new-rocker font-bold text-center" >
             SPORTS IS OUR SECOND LANGUAGE
           </h2>
           <div className="overflow-hidden">
           <p
               className="font-new-rocker text-lg sm:text-xl md:text-2xl lg:text-[38px] leading-snug sm:leading-normal md:leading-tight lg:leading-[47px] mt-4 text-white mx-auto"
-              style={{ maxWidth: "1166px" }}
+              style={{ maxWidth: "840px" }}
             >
-              We play with passion and work with purpose.<br /> 
-              Fierce,focused and always ready for a challenge.
+              We play with passion and work with purpose. Fierce,focused and always ready for a challenge.
             </p>
           </div>
         </div>
@@ -196,9 +218,9 @@ export default function Home() {
 <section className="relative w-full bg-black py-6 sm:py-14 md:py-20">
   <div className="badge-section">
     <div className="badge-section-heading">
-      <h2 className="blue-red-gradient text-2xl sm:text-3xl md:text-4xl lg:text-[55px] leading-tight font-new-rocker font-bold text-center">
+      {/* <h2 className="blue-red-gradient text-2xl pt-10 sm:text-3xl md:text-4xl lg:text-[55px] leading-tight font-new-rocker font-bold text-center">
         MEET OUR SPARTANS
-      </h2>
+      </h2> */}
     </div>
 
     {/* Wrap badges and arrows in a flex container */}
@@ -256,7 +278,7 @@ export default function Home() {
             </button> */}
           </div>
 
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 sm:gap-6 md:gap-12">
             {teamMembers
               .filter((member) => !filterMode || isMemberActive(member))
               .map((member, index) => (
