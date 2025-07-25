@@ -140,7 +140,7 @@ section {
 }
 
 .blue-red-gradient {
-  background: linear-gradient(to right, #87cefa, #ff0000);
+  background: linear-gradient(to right, #ff006a, #0da2ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -156,7 +156,7 @@ section {
   left: 0;
   top: 0;
   z-index: -1;
-  background: linear-gradient(to right, #87cefa, #ff0000);
+  background: linear-gradient(to right, #ff006a, #0da2ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

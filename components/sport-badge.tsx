@@ -17,27 +17,27 @@ export default function SportBadge({ sport, isActive = false, onClick }: SportBa
   const getBadgeImage = () => {
     switch (sport) {
       case "spartans":
-        return "/images/badge-spartan.svg"
+        return "/images/badge-spartan.png"
       case "cricket":
-        return "/images/badge-cricket.svg"
+        return "/images/badge-cricket.png"
       case "badminton":
-        return "/images/badge-badminton.svg"
+        return "/images/badge-badminton.png"
       case "football":
-        return "/images/badge-football.svg"
+        return "/images/badge-football.png"
       case "table-tennis":
-        return "/images/badge-tt.svg"
+        return "/images/badge-tt.png"
       case "snooker":
-        return "/images/badge-snooker.svg"
+        return "/images/badge-snooker.png"
       case "throwball":
-        return "/images/badge-throwball.svg"
+        return "/images/badge-throwball.png"
       case "pickle-ball":
-        return "/images/badge-pickle-ball.svg"
+        return "/images/badge-pickle-ball.png"
       case "chess":
-        return "/images/badge-chess.svg"
+        return "/images/badge-chess.png"
       case "carrom":
-        return "/images/badge-carrom.svg"
+        return "/images/badge-carrom.png"
       default:
-        return "/images/spartans-badge.svg"
+        return "/images/spartans-badge.png"
     }
   }
 

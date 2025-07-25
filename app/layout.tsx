@@ -35,10 +35,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/badge-spartan.svg"></link>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/badge-spartan.png"></link>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Superops - Spartans Sports Team" />
-        <meta property="og:description" content="Sport Is Our Second Language - Dominating every arena with the spirit of ancient warriors" />
+        <meta property="og:description" content="Sports is our second language - Dominating every arena with the spirit of ancient warriors" />
         <meta  property="og:image" content="/images/team-spartans.png" />
         <meta  property="og:url" content="https://spartans-sports-team.vercel.app" />
         <meta  property="og:site_name" content="Superops - Spartans Sports Team" />
