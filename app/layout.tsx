@@ -37,15 +37,15 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/badge-spartan.png"></link>
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Superops - Spartans Sports Team" />
+        <meta property="og:title" content="SuperOps – Arena of the Spartans" />
         <meta property="og:description" content="Sports is our second language - Dominating every arena with the spirit of ancient warriors" />
         <meta  property="og:image" content="/images/team-spartans.png" />
         <meta  property="og:url" content="https://spartans-sports-team.vercel.app" />
-        <meta  property="og:site_name" content="Superops - Spartans Sports Team" />
+        <meta  property="og:site_name" content="SuperOps – Arena of the Spartans" />
         <meta  property="og:locale" content="en_US" />
         <meta  property="og:image:width" content="1200" />
         <meta  property="og:image:height" content="630" />
-        <meta  property="og:image:alt" content="Superops - Spartans Sports Team" />
+        <meta  property="og:image:alt" content="SuperOps – Arena of the Spartans" />
         <meta  property="og:image:type" content="image/png" />
         <meta  property="og:image:secure_url" content="https://spartans-sports-team.vercel.app/images/team-spartans.png" />
         <meta  property="og:image:width" content="1200" />
