@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Superops - Spartans Sports Team",
+  title: "SuperOps – Arena of the Spartans",
   description: "Sport Is Our Second Language - Dominating every arena with the spirit of ancient warriors",
     generator: 'v0.dev'
 }
